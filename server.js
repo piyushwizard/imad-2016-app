@@ -4,21 +4,47 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-
-var content ={
-    title: "Article one | PIYUSH ",
-    heading: "Article One",
-    date: "Sept 5, 2016",
-    content:`
-            <p>
-            This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.
-           </p>
-           <p>
-            This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.
-           </p>
-           <p>
-             This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.
-          </p> `
+var articles = {
+         articleOne : {title: "Article one | PIYUSH ",
+            heading: "Article One",
+            date: "Sept 5, 2016",
+            content:`
+                    <p>
+                    This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.
+                   </p>
+                   <p>
+                    This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.
+                   </p>
+                   <p>
+                     This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.
+                  </p> ` },
+         articleTwo : {title: "Article Two | PIYUSH ",
+            heading: "Article Three",
+            date: "Sept 5, 2016",
+            content:`
+                    <p>
+                    This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.
+                   </p>
+                   <p>
+                    This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.
+                   </p>
+                   <p>
+                     This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.
+                  </p> `},
+         articleThree :{title: "Article Three | PIYUSH ",
+            heading: "Article Three",
+            date: "Sept 5, 2016",
+            content:`
+                    <p>
+                    This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.
+                   </p>
+                   <p>
+                    This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.
+                   </p>
+                   <p>
+                     This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.
+                  </p> `}
+    
 };
 function createtemplate (data){
      var title = data.title;
@@ -61,8 +87,9 @@ app.get('/', function (req, res) {
   res.sendFile(createTemplate(articleOne));
 });
 
-app.get('/article-one',function(req , res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+app.get('/:articliName',function(req , res){
+   var articleNames = req.params.articleName;
+    res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/article-two',function(req , res){
