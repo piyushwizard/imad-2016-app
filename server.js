@@ -5,6 +5,22 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var content ={
+    title: "Article one | PIYUSH ",
+    heading: "Article One",
+    date: "Sept 5, 2016",
+    content:`
+            <p>
+            This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.
+           </p>
+           <p>
+            This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.
+           </p>
+           <p>
+             This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.
+          </p> `
+};
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
