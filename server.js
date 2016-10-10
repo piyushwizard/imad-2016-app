@@ -19,7 +19,7 @@ var articles = {
                      This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.This is very ambitious project for me.
                   </p> ` },
          'article-two': {title: "Article Two | PIYUSH ",
-            heading: "Article Three",
+            heading: "Article Two",
             date: "Sept 5, 2016",
             content:`
                     <p>
