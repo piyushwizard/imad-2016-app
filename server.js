@@ -103,7 +103,7 @@ app.get('/ui/main.js', function (req, res) {
 });
 
 app.get('/ui/madi.jpeg', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'madi.jped'));
+  res.sendFile(path.join(__dirname, 'ui', 'madi.jpeg'));
 });
 
 
