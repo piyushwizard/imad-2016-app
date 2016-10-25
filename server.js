@@ -113,9 +113,9 @@ app.get('/ui/madi.png', function (req, res) {
 });
 app.get('/submit-name', function(req,res){
     var name = req.params.name;
-    names.push(JSON.stringify(names));
+    names.push(names);
     
-    res.send(JSINnames);
+    res.send(JSON.stringify(names));
 });
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
