@@ -113,7 +113,7 @@ app.get('/ui/madi.png', function (req, res) {
 });
 app.get('/submit-name', function(req,res){
     var name = req.params.name;
-    names.push(names);
+    names.push(name);
     
     res.send(JSON.stringify(names));
 });
